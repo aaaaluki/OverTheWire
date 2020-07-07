@@ -574,8 +574,105 @@ Level 28 {
 
 Level 29 {
 	bandit29:bbc96594b4e001778eee9975372716b2
+
+	first i read the file README and it said that the password was in development.
+
+	First i used:
+		$ git status
+	to see if the repo was updated, and then:
+		$ git log
+	to see the commits like the previous level, there were none.
+
+	Next i used:
+		$ git branch -a
+	to see if there were other branches, there was a remote/origin/dev one.
+
+	To recap, there is a branch named dev and the password is in development, so lets change the branch:
+		$ git checkout remotes/origin/dev
+
+	Now we have the file README with the updated password:
+		bbc96594b4e001778eee9975372716b2
 }
 
 Level 30 {
 	bandit30:5b90576bedb2cc04c86a9e924ce42faf
+
+	To solve this one i had some luck, i was comparing the .git folder of the repo from bandit29 and bandit30 when a file caught my attention:
+		$ cat ./git/packed-refs
+		# pack-refs with: peeled fully-peeled 
+		3aefa229469b7ba1cc08203e5d8fa299354c496b refs/heads/master
+		3aefa229469b7ba1cc08203e5d8fa299354c496b refs/remotes/origin/master
+		f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea refs/tags/secret
+
+	there is a tag named secret, hmmmmmmmmm
+	HMMMMMMMMMMMMMMMMMM
+
+	so googling for i while i found how to get info form the tag:
+		$ git cat-file -p secret
+		47e603bb428404d265f59c42920d81e5
+
+					/|\
+					 |
+
+			This is the password
+
+	you can also get the password with this command:
+		$ git show secret
+		47e603bb428404d265f59c42920d81e5
+
+	also there is an other way to list the tags:
+		$ git tag
+		f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea
+		secret
+}
+
+Level 31 {
+	bandit31:47e603bb428404d265f59c42920d81e5
+
+	To get the password for the next level we have to push a file named 'key.txt' to the branch 'master' with the following message:
+		May I come in?
+
+	Easy.
+	First create a file named key.txt and write the message in it
+	Next we check the .gitignore file:
+		$ cat .gitignore
+		*.txt
+	So as we see if we push any file that ends with .txt git will ignore it,
+	so well just have to comment it (to comment put # before the line)
+
+	Now we are ready to commit:
+		$ git add key.txt
+		$ git commit -m 'Message'
+		$ git push origin master
+
+	And we get the password:
+		remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+		remote: 
+		remote: Well done! Here is the password for the next level:
+		remote: 56a9bf19c63d650ce78e6ec0354ee45e
+		remote: 
+		remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+}
+
+Level 32 {
+	bandit32:56a9bf19c63d650ce78e6ec0354ee45e
+
+	Because we are in an interactive sh shell we can execute it again usin $0,
+	now we just have to read the /etc/bandit_pass/bandit33 file:
+		c9c3199ddf4121b10cf581a98d51caee
+}
+
+Level 33 {
+	bandit33:c9c3199ddf4121b10cf581a98d51caee
+
+	there is only one README.txt file:
+		$ cat README.txt
+		Congratulations on solving the last level of this game!
+
+		At this moment, there are no more levels to play in this game. However, we are constantly working
+		on new levels and will most likely expand this game with more levels soon.
+		Keep an eye out for an announcement on our usual communication channels!
+		In the meantime, you could play some of our other wargames.
+
+		If you have an idea for an awesome new level, please let us know!
 }
