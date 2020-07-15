@@ -12,5 +12,26 @@ Leviathan0 {
 
 }
 
+
 Leviathan1 {
+	There is a program called check on the user directory.
+	Once executed it asks for a password, i read a hint online were it said that for the people that watched the movie Hackers it would be
+	and easy task to get the password, or something similar to that. So i decided to search for the hacks that appeared on the movie.
+
+	The first thing i found was about common passwords such as:
+		1234
+		123456
+		password
+		god
+		sex
+		...
+
+	I typed some of this passwords and the correct one was sex.
+
+	Then the program opened a sh shell as the user leviathan2, so to get the next password I just needed to go to the /etc/leviathan_pass/ directory.
+}
+
+
+Leviathan2 {
+	leviathan2:ougahZi8Ta
 }
