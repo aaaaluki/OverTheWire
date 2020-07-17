@@ -7,4 +7,4 @@ git add *
 git commit -m "$commit_msg"
 
 branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-git push -u origin branch
+git push -u origin $branch
