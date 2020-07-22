@@ -154,4 +154,36 @@ Leviathan3 {
 
 Leviathan4 {
 	leviathan4:vuH0coox6m
+
+	On this level we have a hidden directory named .trash, inside there is an executable called bin.
+	If we execute it we get the following:
+		$ ./bin
+		01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+
+	This executable prints an 11 character string in binary.
+	If we use ltrace to see if there is comething else going on:
+		$ ltrace ./bin
+		__libc_start_main(0x80484bb, 1, 0xffffd774, 0x80485b0 <unfinished ...>
+		fopen("/etc/leviathan_pass/leviathan5", "r")                                                                                     = 0
+		+++ exited (status 255) +++
+
+	So it opens the /etc/leviathan_pass/leviathan5 file and it's probably what is printing in binary, now we just have to convert it into ascii.
+
+	These commands do just this:
+		$ echo AB | perl -lpe '$_=join " ", unpack"(B8)*"'
+		01000001 01000010
+		$ echo 01000001 01000010 | perl -lape '$_=pack"(B8)*",@F'
+		AB
+
+	Commands from: https://unix.stackexchange.com/questions/98948/ascii-to-binary-and-binary-to-ascii-conversion-tools
+
+	And using them for our case:
+		$ echo 01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 | perl -lape '$_=pack"(B8)*",@F'
+		Tith4cokei
+
+	Finally wehave the password for the next level!
+}
+
+Leviathan5 {
+	leviathan5:Tith4cokei
 }
