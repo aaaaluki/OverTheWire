@@ -196,4 +196,18 @@ Leviathan5 {
 
 Leviathan6 {
 	leviathan6:UgaoFee4li
+
+	There is an executable named leviathan6 on the home directory that	asks for a 4 digit code (0000..9999)
+
+	To pass this level I used a python script to brute-forece the combination, the script is named "leviathan6.py"
+
+	The code was 7123.
 }
+
+Leviathan7 {
+	leviathan7:ahy7MaeBo9
+
+	There is only a file named "CONGRATULATIONS"
+}
+
+Leviathan Finished!
