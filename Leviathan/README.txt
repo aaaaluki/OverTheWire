@@ -186,4 +186,14 @@ Leviathan4 {
 
 Leviathan5 {
 	leviathan5:Tith4cokei
+
+	There's an executable named leviathan5 on the home directory that opens a file (/tmp/file.log) and prints it, once done it deletes it.
+
+	The get the password for the next level we just have to make the a symlink for "/etc/leviathan_pass/leviathan5" named "/tmp/file.log".
+
+	Then we just have to run the executable.
+}
+
+Leviathan6 {
+	leviathan6:UgaoFee4li
 }
