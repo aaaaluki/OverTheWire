@@ -51,4 +51,21 @@ Natas3 {
 
 Natas4 {
 	natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+
+	For getting the password for the next level the page says that i have to come from http://natas5.natas.labs.overthewire.org/, weird.
+	It just says that i have to come from that site not that i have to be authorized on the site, so i have to create a link on natas5 that redirects me to natas4.
+
+	How to do it, i just copied the line of code for the refresh line and changed index.php fo the whole website:
+		On natas4:
+			<a href="index.php">Refresh page</a>
+		On natas5:
+			<a href="http://natas4.natas.labs.overthewire.org/index.php">Refresh page</a>
+
+	I wrote this line of code on the same place as natas4, indide <div id="viewsource">···</div>
+
+	Finally i just had to click the refresh page button on natas5.
+}
+
+Natas5 {
+	natas5:iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq 
 }
