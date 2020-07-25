@@ -30,4 +30,25 @@ Natas2 {
 
 Natas3 {
 	natas3:sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+
+	For this level the source code says:
+		<!-- No more information leaks!! Not even Google will find it this time... -->
+
+	First i tried to run gobuster with a small directory list to see if i would find something, SPOILER, i did not.
+	Next thing i tried is to google the solution, yeah, yeah, i said i wouldn't do it anymore but idk i was bord.
+
+	To the point once i found the solution i tried to find a way to get there so i googled for common file names on websites, and i found these:
+		favicon.ico
+		index.html
+		robots.txt
+
+	So i tried these files, the first one didn't exist, at least on the main directory; the second one was the main page; and the last one had some juicy stuff:
+		User-agent: *
+		Disallow: /s3cr3t/
+
+	The file disallowed some folder an i went to it, inside there was a "users.txt" file with the password for the next level.
+}
+
+Natas4 {
+	natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
 }
