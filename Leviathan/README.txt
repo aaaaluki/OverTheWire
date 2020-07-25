@@ -202,6 +202,8 @@ Leviathan6 {
 	To pass this level I used a python script to brute-forece the combination, the script is named "leviathan6.py"
 
 	The code was 7123.
+
+	This post helped a lot when creating the script: https://unix.stackexchange.com/questions/238180/execute-shell-commands-in-python
 }
 
 Leviathan7 {
