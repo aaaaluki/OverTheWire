@@ -67,5 +67,44 @@ Natas4 {
 }
 
 Natas5 {
-	natas5:iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq 
+	natas5:iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+
+	This level said that i wasn't logged in, so i decided to open the developer tools (F12) and see if i could find anything.
+
+	After a while i found that on the network tab the file "index.php" had a cookie named loggedin set to 0, so i just had to change it to 1.
+
+	To do so i used a Firefox extension named Cookie Quick Manager, just go to natas5 and click the extension then search for cookies on the current site an modify value.
+	Finally refresh the page and done.
+}
+
+Natas6 {
+	natas6:aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+
+	For this level i'll have to sumbit a string and the web will check if it's correct if it is it will give me the next password.
+	Luckily we can view the source code:
+		<?
+
+		include "includes/secret.inc";
+
+		    if(array_key_exists("submit", $_POST)) {
+		        if($secret == $_POST['secret']) {
+		        print "Access granted. The password for natas7 is <censored>";
+		    } else {
+		        print "Wrong secret";
+		    }
+		    }
+		?>
+
+	This code first includes the file "includes/secret.inc", then checks if the user has sent any data and finally if the value we entered is equal to $secret the next password is given.
+
+	If we go to the file "includes/secret.inc" we find this:
+		<?$secret = "FOEIUWGHFEEUHOFUOIU";?>
+
+	It's the variable $secret we need!
+
+	And if we enter this and sumbit it we get the next password.
+}
+
+Natas7 {
+	natas7:7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
 }
