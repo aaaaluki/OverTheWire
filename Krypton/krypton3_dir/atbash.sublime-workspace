@@ -1,0 +1,322 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lan",
+				"lang_file"
+			],
+			[
+				"so",
+				"sorted_lang_freqs"
+			],
+			[
+				"fre",
+				"freqs_encoded"
+			],
+			[
+				"prin",
+				"print"
+			],
+			[
+				"pai",
+				"pairs_file"
+			],
+			[
+				"decode",
+				"decoded_pairs"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"en",
+				"encoding"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"sor",
+				"sorted_text_freqs"
+			],
+			[
+				"freq",
+				"freqs_count"
+			],
+			[
+				"frq",
+				"freqs_count"
+			],
+			[
+				"freqs_",
+				"freqs_norm"
+			],
+			[
+				"dict",
+				"dict1"
+			],
+			[
+				"file",
+				"filename_format"
+			],
+			[
+				"N",
+				"N0"
+			],
+			[
+				"char",
+				"char_counter"
+			],
+			[
+				"dic",
+				"dict_list"
+			],
+			[
+				"fi",
+				"filename"
+			],
+			[
+				"li",
+				"file_lines"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"filena",
+				"filenames"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"scheme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"bash",
+				"Set Syntax: Bourne Again Shell (bash)"
+			],
+			[
+				"plai",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"bas\t",
+				"Set Syntax: Bourne Again Shell (bash)"
+			],
+			[
+				"the",
+				"UI: Select Color Scheme"
+			],
+			[
+				"pla\t",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"md",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/luki/OverTheWire/Krypton/krypton3_dir/main.py",
+		"/home/luki/OverTheWire/Krypton/krypton3_dir/found1",
+		"/home/luki/OverTheWire/Natas/README.txt",
+		"/home/luki/OverTheWire/Bandit/README.txt",
+		"/home/luki/OverTheWire/Leviathan/README.txt",
+		"/home/luki/OverTheWire/Natas/README",
+		"/home/luki/OverTheWire/Leviathan/README",
+		"/home/luki/OverTheWire/Bandit/bandit26.sshkey",
+		"/home/luki/OverTheWire/Bandit/bandit24script.sh",
+		"/home/luki/thm/learnburp/password.hash",
+		"/home/luki/thm/learnburp/password.hashid",
+		"/home/luki/thm/learnburp/README",
+		"/usr/share/wordlists/rockyou-20.txt",
+		"/usr/share/john/password.lst",
+		"/home/luki/ptest/README.md",
+		"/home/luki/thm/crack_the_hash/README.txt",
+		"/usr/share/wordlists/catala.txt",
+		"/usr/share/wordlists/animals.txt",
+		"/usr/share/john/repeats32.conf",
+		"/home/luki/thm/bebop/recon",
+		"/home/luki/thm/bebop/README.txt",
+		"/home/luki/thm/bebop/reconF",
+		"/home/luki/thm/luki.ovpn",
+		"/home/luki/thm/vulnversity/upload.php",
+		"/home/luki/188.79.206.75",
+		"/home/luki/thm/vulnversity/upload.txt",
+		"/home/luki/thm/vulnversity/README.txt",
+		"/home/luki/thm/vulnversity/recon_info.txt",
+		"/home/luki/thm/vulnversity/phpext.txt",
+		"/home/luki/thm/vulnversity/nmap_p_400.txt",
+		"/home/luki/Downloads/dirbuster-ng-master/wordlists/catala.txt",
+		"/home/luki/thm/hello.go",
+		"/usr/share/wordlists/fasttrack.txt",
+		"/usr/share/wordlists/nmap.lst",
+		"/home/luki/thm/ohsint/metadata.txt",
+		"/home/luki/thm/ohsint/README.txt",
+		"/usr/share/wordlists/rockyou.txt.gz",
+		"/usr/share/wordlists/rockyou.txt"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "atbash.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

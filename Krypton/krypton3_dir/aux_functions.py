@@ -31,3 +31,11 @@ def normalize_dict(dicto, num):
 		dicto[k] = 100*dicto[k]/num
 
 	return dicto
+
+def flip_dicto(dicto):
+	output = {}
+	for k, v in dicto.items():
+		output[v] = k
+
+	return output
+	
