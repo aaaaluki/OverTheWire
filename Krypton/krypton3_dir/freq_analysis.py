@@ -1,82 +1,85 @@
+import os
 import aux_functions as aux
 
-filenames = ['krypton4']
+class Freq_analysis:
+	filenames = []
+	cwd = ''
+	letter_frequency = {'E' : 12.0,
+	'T' : 9.10,
+	'A' : 8.12,
+	'O' : 7.68,
+	'I' : 7.31,
+	'N' : 6.95,
+	'S' : 6.28,
+	'R' : 6.02,
+	'H' : 5.92,
+	'D' : 4.32,
+	'L' : 3.98,
+	'U' : 2.88,
+	'C' : 2.71,
+	'M' : 2.61,
+	'F' : 2.30,
+	'Y' : 2.11,
+	'W' : 2.09,
+	'G' : 2.03,
+	'P' : 1.82,
+	'B' : 1.49,
+	'V' : 1.11,
+	'K' : 0.69,
+	'X' : 0.17,
+	'Q' : 0.11,
+	'J' : 0.10,
+	'Z' : 0.07 }
 
-letter_frequency = {'E' : 12.0,
-'T' : 9.10,
-'A' : 8.12,
-'O' : 7.68,
-'I' : 7.31,
-'N' : 6.95,
-'S' : 6.28,
-'R' : 6.02,
-'H' : 5.92,
-'D' : 4.32,
-'L' : 3.98,
-'U' : 2.88,
-'C' : 2.71,
-'M' : 2.61,
-'F' : 2.30,
-'Y' : 2.11,
-'W' : 2.09,
-'G' : 2.03,
-'P' : 1.82,
-'B' : 1.49,
-'V' : 1.11,
-'K' : 0.69,
-'X' : 0.17,
-'Q' : 0.11,
-'J' : 0.10,
-'Z' : 0.07 }
+	def __init__(self):
+		Freq_analysis.cwd = os.path.dirname(__file__)
+		path = os.path.join(Freq_analysis.cwd, 'to_encode')
+		for file in os.listdir(path):
+			if os.path.isfile(os.path.join(path, file)):
+				Freq_analysis.filenames.append(file)
 
-def setup(N0, NX, filename_format):
-	for i in range(N0, NX+1):
-		filenames.append(filename_format + str(i))
+	def ngram_counter(self, file, N):
+		freqs = {}
+		num = 0
 
-def char_counter(file):
-	freqs = letter_frequency.copy()
-	freqs = dict.fromkeys(freqs, 0.00)
-	num = 0
+		for line in file.readlines():
+			line.upper()
+			for i in range(len(line)+1-N):
+				gram = line[i:i+N]
+				if gram.isalpha():
+					if gram in freqs:
+						freqs[gram] += 1
+					else:
+						freqs[gram] = 1
 
-	file_lines = file.readlines()
+					num += 1
 
-	for line in file_lines:
-		line  = line.upper()
-		for char in line:
-			if not char.isalpha():
-				continue
-			else:
-				freqs[char] += 1
-				num += 1
-
-	if num == 0:
-		return -1
-	else:
 		return freqs, num
 
-def main(show_results=False):
-	if show_results:
-		print('Letter frequency: English')
-		aux.print_dict(letter_frequency)
-
-	count = 0
-	freqs_count = {}
-
-	for filename in filenames:
-		file = open(filename, 'r')
-
-		freqs_temp, num = char_counter(file)
-
+	def main(self, show_results=False, N=1):
 		if show_results:
-			print(filename)
-			aux.print_dict(aux.normalize_dict(freqs_temp, num))
+			print('Letter frequency: English')
+			aux.print_dict(Freq_analysis.letter_frequency)
 
-		count += num
-		freqs_count = aux.add_dicts(freqs_count, freqs_temp)
+		count = 0
+		freqs_count = {}
+		folder = os.path.join(Freq_analysis.cwd, 'to_encode')
 
-		file.close()
+		for filename in Freq_analysis.filenames:
+			filename = os.path.join(folder, filename)
+			print(Freq_analysis.cwd)
+			with open(filename, 'r') as file:
 
-	return aux.normalize_dict(freqs_count, count)
+				freqs_temp, num = self.ngram_counter(file, N)
+
+				if show_results:
+					print(filename)
+					aux.print_dict(aux.normalize_dict(freqs_temp, num))
+
+				count += num
+				freqs_count = aux.add_dicts(freqs_count, freqs_temp)
+
+		return aux.normalize_dict(freqs_count, count)
 
 
 if __name__ == '__main__':

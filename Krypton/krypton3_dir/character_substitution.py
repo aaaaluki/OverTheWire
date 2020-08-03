@@ -1,8 +1,15 @@
+import os
+from os.path import join
 from aux_functions import flip_dicto, print_dict
 
 def encode_file(filename, pairs):
-	file = open(filename, 'r')
-	write = open(filename + '_atbash_encoded', 'w+')
+	cwd = os.path.dirname(__file__)
+
+	path_to_encode = join(cwd, 'to_encode')
+	path_encoded = join(cwd, 'encoded_files')
+
+	file = open(path_to_encode, 'r')
+	write = open(path_encoded + '_encoded', 'w+')
 
 	file_lines = file.readlines()
 
@@ -16,10 +23,12 @@ def encode_file(filename, pairs):
 	write.close
 
 def decode_file(filename, pairs):
-	file = open(filename, 'r')
-	write = open(filename + '_atbash_decoded', 'w+')
-	decoded_pairs = flip_dicto(pairs)
 
+
+	file = open(file_path, 'r')
+	write = open(file_path + '_decoded', 'w+')
+
+	decoded_pairs = flip_dicto(pairs)
 	file_lines = file.readlines()
 
 	for line in file_lines:

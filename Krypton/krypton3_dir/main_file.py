@@ -1,25 +1,24 @@
+import os
 import aux_functions as aux
-import atbash
-import freq_analysis as fa
-from freq_analysis import letter_frequency, filenames
+import character_substitution as charsub
+from freq_analysis import Freq_analysis
 
 
-NO = 1
-NX = 3
-filename_format = 'found'
+XGRAM = 2
 show_fa_results = False
-freqs_lang = letter_frequency
 
 
 def main():
-	fa.setup(NO, NX, filename_format)
+	fa = Freq_analysis()
 	freqs = fa.main(show_fa_results)
+	freqs_lang = fa.letter_frequency
 
-#	print('Test')
-#	aux.print_dict(freqs)
+	print(freqs)
+	print()
 
-	freqs_file = open('freqs_encoded', 'w+')
-	lang_file = open('freqs_lang', 'w+')
+	folder_data = os.path.join(fa.cwd, 'data')
+	freqs_file = open(os.path.join(folder_data, 'freqs_encoded'), 'w+')
+	lang_file = open(os.path.join(folder_data, 'freqs_lang'), 'w+')
 
 	sorted_text_freqs = aux.get_sorted_dicto(freqs)
 	sorted_lang_freqs = aux.get_sorted_dicto(freqs_lang)
@@ -44,15 +43,15 @@ def main():
 	print('Pairs:')
 	aux.print_dict(encoding)
 
-	pairs_file = open('pairs', 'w+')
+	pairs_file = open(os.path.join(folder_data, 'pairs'), 'w+')
 
 	for k,v in encoding.items():
 		pairs_file.write('{k}:{v}\n'.format(k=k, v=v))
 
 	pairs_file.close()
 
-	for filename in filenames:
-		atbash.decode_file(filename, encoding)
+	for filename in fa.filenames:
+		charsub.decode_file(filename, encoding)
 
 	return 1
 

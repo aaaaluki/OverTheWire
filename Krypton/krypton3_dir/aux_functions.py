@@ -24,9 +24,6 @@ def get_sorted_dicto(dicto):
 	return sorted(dicto.items(), key=lambda x: x[1], reverse=True)
 
 def normalize_dict(dicto, num):
-	if num == 0:
-		return -1
-
 	for k in dicto:
 		dicto[k] = 100*dicto[k]/num
 
