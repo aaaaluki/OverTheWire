@@ -14,11 +14,10 @@ def add_dicts(dict1, dict2):
 
 def print_dict(dicto):
 	for k,v in dicto.items():
-		print('\t{k} -> {v:.2f}'.format(k=k, v=v))
-
-def print_dict(dicto):
-	for k,v in dicto.items():
-		print('\t{k} -> {v}'.format(k=k, v=v))
+		if isinstance(v, float):
+			print('\t{k} -> {v:.2f}'.format(k=k, v=v))
+		else:
+			print('\t{k} -> {v}'.format(k=k, v=v))
 
 def get_sorted_dicto(dicto):
 	return sorted(dicto.items(), key=lambda x: x[1], reverse=True)

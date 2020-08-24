@@ -1,6 +1,9 @@
+#!/usr/bin/python
 import os
+import sys
 
 dir_to_create = ['encoded', 'decoded', 'data', 'to_decode', 'to_encode']
+verbose = False
 
 
 def check_dir(dir_name):
@@ -16,6 +19,12 @@ def check_dir(dir_name):
 
 
 def main():
+	try:
+		if sys.argv[1] == '-v' or sys.argv[1] == '--verbosity':
+			verbose = True
+	except IndexError:
+		pass
+
 	for dirc in dir_to_create:
 		check_dir(dirc)
 

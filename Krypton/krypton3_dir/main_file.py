@@ -1,10 +1,11 @@
+#!/usr/bin/python
 import os
 import aux_functions as aux
 import character_substitution as charsub
 from freq_analysis import Freq_analysis
 
 
-XGRAM = 2
+XGRAM = 1
 show_fa_results = False
 
 
@@ -12,9 +13,6 @@ def main():
 	fa = Freq_analysis()
 	freqs = fa.main(show_fa_results)
 	freqs_lang = fa.letter_frequency
-
-	print(freqs)
-	print()
 
 	folder_data = os.path.join(fa.cwd, 'data')
 	freqs_file = open(os.path.join(folder_data, 'freqs_encoded'), 'w+')
@@ -52,8 +50,6 @@ def main():
 
 	for filename in fa.filenames:
 		charsub.decode_file(filename, encoding)
-
-	return 1
 
 
 if __name__ == '__main__':

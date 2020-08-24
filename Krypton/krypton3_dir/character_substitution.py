@@ -5,8 +5,8 @@ from aux_functions import flip_dicto, print_dict
 def encode_file(filename, pairs):
 	cwd = os.path.dirname(__file__)
 
-	path_to_encode = join(cwd, 'to_encode')
-	path_encoded = join(cwd, 'encoded_files')
+	path_to_encode = join(cwd, 'to_encode', filename)
+	path_encoded = join(cwd, 'encoded', filename)
 
 	file = open(path_to_encode, 'r')
 	write = open(path_encoded + '_encoded', 'w+')
@@ -23,10 +23,13 @@ def encode_file(filename, pairs):
 	write.close
 
 def decode_file(filename, pairs):
+	cwd = os.path.dirname(__file__)
 
+	path_to_decode = join(cwd, 'to_decode', filename)
+	path_decoded = join(cwd, 'decoded', filename)
 
-	file = open(file_path, 'r')
-	write = open(file_path + '_decoded', 'w+')
+	file = open(path_to_decode, 'r')
+	write = open(path_decoded + '_decoded', 'w+')
 
 	decoded_pairs = flip_dicto(pairs)
 	file_lines = file.readlines()

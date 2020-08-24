@@ -33,7 +33,7 @@ class Freq_analysis:
 
 	def __init__(self):
 		Freq_analysis.cwd = os.path.dirname(__file__)
-		path = os.path.join(Freq_analysis.cwd, 'to_encode')
+		path = os.path.join(Freq_analysis.cwd, 'to_decode')
 		for file in os.listdir(path):
 			if os.path.isfile(os.path.join(path, file)):
 				Freq_analysis.filenames.append(file)
@@ -63,11 +63,10 @@ class Freq_analysis:
 
 		count = 0
 		freqs_count = {}
-		folder = os.path.join(Freq_analysis.cwd, 'to_encode')
+		folder = os.path.join(Freq_analysis.cwd, 'to_decode')
 
 		for filename in Freq_analysis.filenames:
 			filename = os.path.join(folder, filename)
-			print(Freq_analysis.cwd)
 			with open(filename, 'r') as file:
 
 				freqs_temp, num = self.ngram_counter(file, N)
@@ -80,7 +79,3 @@ class Freq_analysis:
 				freqs_count = aux.add_dicts(freqs_count, freqs_temp)
 
 		return aux.normalize_dict(freqs_count, count)
-
-
-if __name__ == '__main__':
-	main()
