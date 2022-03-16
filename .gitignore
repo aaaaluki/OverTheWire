@@ -2,6 +2,10 @@ __pycache__
 *.pyc
 *.vscode
 
-# Cryptographi Java project
+# Cryptography Java project
 /Krypton/krypton3_dir/java/Cryptography/nbproject/private/
 /Krypton/krypton3_dir/java/Cryptography-test/nbproject/private/
+
+# some compiled code
+bin/
+*.out
